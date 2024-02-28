@@ -13,6 +13,7 @@ public class PlanetLauncher : MonoBehaviour
     public Button LaunchButton;
     public Button DropButton;
     public TMP_Text GameOverText;
+    public TMP_Text FinalScoreText;
 
     private bool gameOver;
     private GameObject fallingPlanet;
@@ -26,17 +27,18 @@ public class PlanetLauncher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fallingPlanet == null && !gameOver)
+        if(fallingPlanet == null && !gameOver  && !LaunchButton.IsActive())
             SetGameOver();
     }
 
     private void SetGameOver()
     {
         gameOver = true;
-        
+
         QuitButton.gameObject.SetActive(true);
         StartButton.gameObject.SetActive(true);
-        GameOverText.gameObject.SetActive(false);
+        GameOverText.gameObject.SetActive(true);
+        FinalScoreText.gameObject.SetActive(true);
         LaunchButton.gameObject.SetActive(false);
         DropButton.gameObject.SetActive(false);
 
@@ -64,10 +66,12 @@ public class PlanetLauncher : MonoBehaviour
 
     public void StartGameClick()
     {
+        gameOver = false;
         LaunchButton.gameObject.SetActive(true);
         QuitButton.gameObject.SetActive(false);
         StartButton.gameObject.SetActive(false);
         GameOverText.gameObject.SetActive(false);
+        FinalScoreText.gameObject.SetActive(false);
         MusicControl.Instance.TurnMusicOn();
     }
 
