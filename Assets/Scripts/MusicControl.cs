@@ -1,7 +1,9 @@
+using TMPro;
 using UnityEngine;
 
 public class MusicControl : MonoBehaviour
 {
+    public TMP_Text MusicText;
     private bool masterMusicOn = true;
     private bool playMusic;
     public static MusicControl Instance {get; private set;}
@@ -24,7 +26,6 @@ public class MusicControl : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.M))
         {
             masterMusicOn = !masterMusicOn;
-            Debug.LogFormat("Master Music is ", masterMusicOn ? "ON" : "OFF");
             TurnMusicOn(playMusic);
         }
     }
@@ -36,5 +37,7 @@ public class MusicControl : MonoBehaviour
         {
             // audio.IsActive(playMusic);
         }
+
+        MusicText.text = masterMusicOn ? "[M]usic: on" : "[M]usic: off";
     }
 }
