@@ -18,6 +18,9 @@ public class PlanetLauncher : MonoBehaviour
     private bool gameOver;
     private GameObject fallingPlanet;
 
+    private readonly int maxPlanets = 3;
+    private int planetsRemaining;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +30,13 @@ public class PlanetLauncher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fallingPlanet == null && !gameOver  && !LaunchButton.IsActive())
-            SetGameOver();
+        if(fallingPlanet == null && !gameOver)
+        {
+            if(planetsRemaining <= 0)
+               SetGameOver();
+            else if(!LaunchButton.IsActive())
+                LaunchButton.gameObject.SetActive(true);
+        }
     }
 
     private void SetGameOver()
@@ -50,6 +58,7 @@ public class PlanetLauncher : MonoBehaviour
         var index = Random.Range(0, PlanetPrefabs.Length);
         fallingPlanet = Instantiate(PlanetPrefabs[index]);
         fallingPlanet.transform.position = new Vector3(1,1,1);
+        planetsRemaining--;
     }
 
     public void LauchPlanetClick()
@@ -62,16 +71,19 @@ public class PlanetLauncher : MonoBehaviour
     public void DropPlanetClick()
     {
         DropButton.gameObject.SetActive(false);
+        //TODO: need to stop the planet and let it drop;
     }
 
     public void StartGameClick()
     {
         gameOver = false;
+        planetsRemaining = maxPlanets;
         LaunchButton.gameObject.SetActive(true);
         QuitButton.gameObject.SetActive(false);
         StartButton.gameObject.SetActive(false);
         GameOverText.gameObject.SetActive(false);
         FinalScoreText.gameObject.SetActive(false);
+
         MusicControl.Instance.TurnMusicOn();
     }
 
