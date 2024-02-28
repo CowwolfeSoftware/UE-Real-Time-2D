@@ -1,10 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
+using TMPro;
 using UnityEngine;
 
 public class ScoreBoard : MonoBehaviour
 {
+    public TMP_Text FinalScoreText;
+    public TMP_Text GameScoreText;
+    public TMP_Text HighScoreText;
+
+    private int highScore;
     private int score;
     public static ScoreBoard Instance {get; private set;}
     // Start is called before the first frame update
@@ -20,20 +24,26 @@ public class ScoreBoard : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ResetScore()
     {
         score = 0;
+        SetScores();
     }
 
     public void IncrementScore(int count)
     {
         score += count;
-        Debug.Log("Score = " + score);
+        SetScores();
+    }
+
+    void SetScores()
+    {
+        if(highScore < score)
+            highScore = score;
+
+        HighScoreText.text = String.Format("High Score: {0}", highScore);
+        var scoreText = String.Format("Score: {0}", score);
+        GameScoreText.text = scoreText;
+        FinalScoreText.text = scoreText;
     }
 }
