@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8088079857553553602}
   - component: {fileID: 4497682617517366323}
   - component: {fileID: 5523643361328948129}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Peg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

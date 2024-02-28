@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7673424788539511327}
   - component: {fileID: 8343539477728529530}
   - component: {fileID: 3169046969621635402}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: planet_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.077391, y: 10.502156, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

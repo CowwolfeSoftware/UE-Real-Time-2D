@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -8630955358094932893}
   - component: {fileID: 7859751344151056124}
   - component: {fileID: -678012150841511818}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: planet_yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

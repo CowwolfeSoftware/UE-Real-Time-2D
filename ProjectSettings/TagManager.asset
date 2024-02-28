@@ -8,11 +8,12 @@ TagManager:
   - SCORE1
   - SCORE5
   - SCORE10
+  - Peg
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - GameObjects
   - Water
   - UI
   - 

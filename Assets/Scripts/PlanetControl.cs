@@ -6,16 +6,28 @@ using UnityEngine;
 
 public class PlanetControl : MonoBehaviour
 {
-    void OnTriggerEnter(Collider collider)
+    void OnTriggerExit2D(Collider2D collider)
     {
-        switch(collider.tag)
+        switch(collider.gameObject.tag)
         {
-            case "SCORE1" : Debug.Log("Score 1");
-            break;
-            case "SCORE5" : Debug.Log("Score 5");
-            break;
-            case "SCORE10" : Debug.Log("Score 10");
-            break;
+            case "SCORE1" : 
+                ScoreBoard.Instance.IncrementScore(1);
+                Destroy(gameObject);
+                break;
+
+            case "SCORE5" :
+                ScoreBoard.Instance.IncrementScore(5);
+                Destroy(gameObject);
+                break;
+            
+            case "SCORE10" :
+                ScoreBoard.Instance.IncrementScore(10);
+                Destroy(gameObject);
+                break;
+            
+            case "SCORE0" :
+                Destroy(gameObject);
+                break;
         }
     }
 }
