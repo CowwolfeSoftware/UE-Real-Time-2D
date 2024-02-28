@@ -57,7 +57,7 @@ public class PlanetLauncher : MonoBehaviour
     {
         var index = Random.Range(0, PlanetPrefabs.Length);
         fallingPlanet = Instantiate(PlanetPrefabs[index]);
-        fallingPlanet.transform.position = new Vector3(1,1,1);
+        fallingPlanet.GetComponent<PlanetControl>().LaunchPlanet();
         planetsRemaining--;
     }
 
@@ -71,7 +71,7 @@ public class PlanetLauncher : MonoBehaviour
     public void DropPlanetClick()
     {
         DropButton.gameObject.SetActive(false);
-        //TODO: need to stop the planet and let it drop;
+        fallingPlanet.GetComponent<PlanetControl>().DropPlanet();
     }
 
     public void StartGameClick()
