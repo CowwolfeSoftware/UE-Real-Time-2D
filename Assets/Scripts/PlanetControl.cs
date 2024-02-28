@@ -13,7 +13,7 @@ public class PlanetControl : MonoBehaviour
     {
         preDropPlanet = true;
         movingRight = true;
-        plantLaunchPosition = plantLaunchPosition = new Vector3(maxLeftPosition, 13f, 0f);
+        plantLaunchPosition = plantLaunchPosition = new Vector3(maxLeftPosition, 10.5f, 0f);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
     }
 
