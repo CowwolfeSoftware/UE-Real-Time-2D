@@ -6,7 +6,7 @@ public class MusicControl : MonoBehaviour
     public TMP_Text MusicText;
     private bool masterMusicOn = true;
     private bool playMusic;
-    private readonly float musicVolume = 0.2f;
+    private readonly float musicVolume = 0.15f;
     public static MusicControl Instance {get; private set;}
 
     private AudioSource music;
@@ -42,12 +42,15 @@ public class MusicControl : MonoBehaviour
 
     public void TurnMusicOn(bool play = true)
     {
-        playMusic = play;
-        if(masterMusicOn && playMusic)
-               music.volume = musicVolume;
-        else
-            music.volume = 0;
+        if(music != null)
+        {
+            playMusic = play;
+            if(masterMusicOn && playMusic)
+                music.volume = musicVolume;
+            else
+                music.volume = 0;
 
-        MusicText.text = masterMusicOn ? "[M]usic: on" : "[M]usic: off";
+            MusicText.text = masterMusicOn ? "[M]usic: on" : "[M]usic: off";
+        }
     }
 }

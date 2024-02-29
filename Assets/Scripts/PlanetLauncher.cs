@@ -17,7 +17,7 @@ public class PlanetLauncher : MonoBehaviour
     private bool gameOver;
     private GameObject fallingPlanet;
 
-    private readonly int maxPlanets = 40;
+    private readonly int maxPlanets = 10;
     private int planetsRemaining;
 
     // Start is called before the first frame update
