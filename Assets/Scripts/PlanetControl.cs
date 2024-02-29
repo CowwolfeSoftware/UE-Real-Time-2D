@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlanetControl : MonoBehaviour
 {
-    private float LaunchSpeed = 14;
+    private float LaunchSpeed = 30;
     private bool preDropPlanet;
     private readonly float maxLeftPosition = -21f;
     private readonly float maxRightPosition = 21f;

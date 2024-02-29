@@ -9,6 +9,7 @@ TagManager:
   - SCORE5
   - SCORE10
   - Peg
+  - Planet
   layers:
   - Default
   - TransparentFX
