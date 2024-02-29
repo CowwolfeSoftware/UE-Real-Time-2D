@@ -12,6 +12,7 @@ public class PlanetLauncher : MonoBehaviour
     public Button DropButton;
     public TMP_Text GameOverText;
     public TMP_Text FinalScoreText;
+    public TMP_Text PlanetsText;
 
     private bool gameOver;
     private GameObject fallingPlanet;
@@ -57,6 +58,7 @@ public class PlanetLauncher : MonoBehaviour
         fallingPlanet = Instantiate(PlanetPrefabs[index]);
         fallingPlanet.GetComponent<PlanetControl>().LaunchPlanet();
         planetsRemaining--;
+        PlanetsText.text = string.Format("Planets: {0}", planetsRemaining);
     }
 
     public void LauchPlanetClick()
@@ -81,7 +83,7 @@ public class PlanetLauncher : MonoBehaviour
         StartButton.gameObject.SetActive(false);
         GameOverText.gameObject.SetActive(false);
         FinalScoreText.gameObject.SetActive(false);
-
+        PlanetsText.text = string.Format("Planets: {0}", planetsRemaining);
         MusicControl.Instance.TurnMusicOn();
     }
 
